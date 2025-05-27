@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
+
+:root{
+    --font: "Gowun Batang", serif;
+    --cor-1: #ECDFCC;
+    --cor-2: #697565;
+    --cor-3: #3C3D37;
+    --cor-4: #181C14;
+}
+
+body{
+    background: url('img/bg-desktop.webp');
+    color: var(--cor-4);
+    font-family: var(--font);
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 3rem;
+}
+
+.cartao {
+    margin: 1rem;
+    height: 20rem;
+    flex-grow: 1;
+    flex-basis: calc(33% - 6rem);
+    border-radius: 15px; /* Bordas arredondadas */
+    overflow: hidden;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cartao__conteudo {
+    background-color: var(--cor-2);
+    text-align: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms ease-in-out;
+    border-radius: 15px;
+}
+
+.cartao__conteudo h3 {
+    color: var(--cor-1);
+    border: 1px solid var(--cor-4);
+    text-align: left;
+    padding: 0.5rem;
+    position: absolute;
+    margin: 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 1vw;
+    backface-visibility: hidden;
+}
+
+.cartao__conteudo p {
+    margin-top: 4rem;
+    padding: 2rem;
+    font-size: 1.4vw;
+}
+
+.cartao__conteudo__pergunta p {
+    color: var(--cor-4);
+    font-weight: 900;
+}
+
+.cartao__conteudo__resposta {
+    color: var(--cor-1);
+    font-weight: 700;
+}
+
+.cartao.active .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg);
+    border: 4px solid var(--cor-4);
+    border-radius: 15px;
+}
+
+footer {
+    background-color: var(--cor-2);
+    color: var(--cor-4);
+    position: fixed;
+    bottom: 0;
+    left: 0; /* Corrigindo para ocupar toda a largura */
+    width: 100%;
+    height: 2rem;
+    text-align: center;
+    font-size: 0.6rem;
+    padding-top: 0.5rem;
+}
+
+@media (max-width: 560px) {
+    body {
+        background: url('img/bg-mobile.webp') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .cartao {
+        flex: 1 0 calc(100% - 1rem);
+    }
+
+    .cartao__conteudo h3 {
+        font-size: 3vw;
+    }
+
+    .cartao__conteudo p {
+        font-size: 3.8vw;
+    }
+}
